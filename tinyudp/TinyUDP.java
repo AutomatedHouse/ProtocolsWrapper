@@ -18,12 +18,12 @@ public class TinyUDP {
     // Class proberties
     private int port ;
     private String host;
-    private int PacketSizeLimit;
-    private int WindowSize;
-    private InetAddress DestinationAddress;
-    private DatagramSocket SockeT;
-    private ArrayList<DatagramPacket> ToSendQueue;
-    private ArrayList<DatagramPacket> ReceivedQueue;
+    private int PacketSizeLimit; // Packet Size may be less than 64000
+    private int WindowSize; // Queues Size
+    private InetAddress DestinationAddress; // Destination Address Object
+    private DatagramSocket SockeT; // Socket Object
+    private ArrayList<DatagramPacket> ToSendQueue;   // Sending Queue
+    private ArrayList<DatagramPacket> ReceivedQueue; // Receiving Queue
     
     
     
@@ -223,15 +223,5 @@ public class TinyUDP {
     
     
     //End Of UDP Wrapper Class;
-    
-    
-    
-    
-    
-    
-            
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
-    
+
 }
