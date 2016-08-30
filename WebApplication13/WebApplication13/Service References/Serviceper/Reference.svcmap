@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="bff46d49-7f03-4c92-a069-c3acf620d1f4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8050/TransferServices" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TransferServices.xsd" MetadataType="Schema" ID="80e5e039-7206-4b9b-bf05-3f1d8d8d2490" SourceId="1" SourceUrl="http://localhost:8050/TransferServices?xsd=xsd1" />
+    <MetadataFile FileName="TransferServices1.xsd" MetadataType="Schema" ID="87e64f69-d352-46fb-853d-c1353759b63a" SourceId="1" SourceUrl="http://localhost:8050/TransferServices?xsd=xsd2" />
+    <MetadataFile FileName="TransferService.wsdl" MetadataType="Wsdl" ID="5e3626e8-57af-4de7-85d7-93a652f76893" SourceId="1" SourceUrl="http://localhost:8050/TransferServices?wsdl" />
+    <MetadataFile FileName="TransferServices2.xsd" MetadataType="Schema" ID="45a92de1-ccf8-4106-b886-c1068cace328" SourceId="1" SourceUrl="http://localhost:8050/TransferServices?xsd=xsd0" />
+    <MetadataFile FileName="TransferServices.disco" MetadataType="Disco" ID="5fa272ed-3d4f-4afc-a20b-d6684d8cf2ed" SourceId="1" SourceUrl="http://localhost:8050/TransferServices?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
