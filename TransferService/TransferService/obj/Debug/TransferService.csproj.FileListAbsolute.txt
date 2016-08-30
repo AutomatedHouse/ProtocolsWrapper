@@ -1,5 +1,0 @@
-C:\Users\mohamed\documents\visual studio 2013\Projects\TransferService\TransferService\bin\Debug\TransferService.dll.config
-C:\Users\mohamed\documents\visual studio 2013\Projects\TransferService\TransferService\bin\Debug\TransferService.dll
-C:\Users\mohamed\documents\visual studio 2013\Projects\TransferService\TransferService\bin\Debug\TransferService.pdb
-C:\Users\mohamed\documents\visual studio 2013\Projects\TransferService\TransferService\obj\Debug\TransferService.dll
-C:\Users\mohamed\documents\visual studio 2013\Projects\TransferService\TransferService\obj\Debug\TransferService.pdb

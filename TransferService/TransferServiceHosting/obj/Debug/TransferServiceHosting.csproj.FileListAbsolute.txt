@@ -1,8 +1,0 @@
-C:\Users\mohamed\documents\visual studio 2013\Projects\TransferService\TransferServiceHosting\bin\Debug\TransferServiceHosting.exe.config
-C:\Users\mohamed\documents\visual studio 2013\Projects\TransferService\TransferServiceHosting\bin\Debug\TransferServiceHosting.exe
-C:\Users\mohamed\documents\visual studio 2013\Projects\TransferService\TransferServiceHosting\bin\Debug\TransferServiceHosting.pdb
-C:\Users\mohamed\documents\visual studio 2013\Projects\TransferService\TransferServiceHosting\bin\Debug\TransferService.dll
-C:\Users\mohamed\documents\visual studio 2013\Projects\TransferService\TransferServiceHosting\bin\Debug\TransferService.pdb
-C:\Users\mohamed\documents\visual studio 2013\Projects\TransferService\TransferServiceHosting\obj\Debug\TransferServiceHosting.csprojResolveAssemblyReference.cache
-C:\Users\mohamed\documents\visual studio 2013\Projects\TransferService\TransferServiceHosting\obj\Debug\TransferServiceHosting.exe
-C:\Users\mohamed\documents\visual studio 2013\Projects\TransferService\TransferServiceHosting\obj\Debug\TransferServiceHosting.pdb
