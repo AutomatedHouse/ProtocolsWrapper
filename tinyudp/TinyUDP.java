@@ -1,6 +1,6 @@
 
 
-package tinyudp;
+package teset1;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -8,7 +8,6 @@ import java.net.InetAddress;
 import java.io.IOException;
 import java.net.SocketException;
 import java.net.UnknownHostException;
-import java.util.ArrayList;
 
 /**
  *
@@ -18,12 +17,12 @@ public class TinyUDP {
     // Class proberties
     private int port ;
     private String host;
-    private int PacketSizeLimit; // Packet Size may be less than 64000
-    private int WindowSize; // Queues Size
-    private InetAddress DestinationAddress; // Destination Address Object
-    private DatagramSocket SockeT; // Socket Object
-    private ArrayList<DatagramPacket> ToSendQueue;   // Sending Queue
-    private ArrayList<DatagramPacket> ReceivedQueue; // Receiving Queue
+    private int PacketSizeLimit;
+    private int WindowSize;
+    private InetAddress DestinationAddress;
+    private DatagramSocket SockeT;
+    private DatagramPacket ToSendPacket;
+    private DatagramPacket ReceivedPacket;
     
     
     
@@ -31,10 +30,10 @@ public class TinyUDP {
     public TinyUDP(int Uport , String UHost)
     {
         // Set Some default Values
-        this.SetWindowSize(Uport);
+        this.SetPort(Uport);
         this.SetHost(UHost);
         this.PacketSizeLimit = 64000; // max size of UDP packet
-        this.WindowSize = 10; // size of send and receive Queues
+        this.WindowSize = 1; // size of send and receive Queues
         
     }
     
@@ -68,6 +67,8 @@ public class TinyUDP {
         }
     }
     
+    
+    // Get the host as string
     public String GetHost()
     {
         return this.host;
@@ -120,8 +121,6 @@ public class TinyUDP {
     {
         try {
             this.SockeT = new DatagramSocket(this.GetPort());
-            this.ReceivedQueue = new ArrayList<DatagramPacket>(this.GetWindowSize());
-            this.ToSendQueue = new ArrayList<DatagramPacket>(this.GetWindowSize());
             return true;
             
         } catch (SocketException ex) {
@@ -129,85 +128,27 @@ public class TinyUDP {
         }
         
     }
-    
-    //Make the Packet and Put it in the queue
-    public boolean AppendPacket(byte[] PacketData)
-    {
-        if(PacketData.length < this.GetPacketSizeLimit())
-        {
-            DatagramPacket TempPacket = new DatagramPacket(PacketData, PacketData.length,this.GetHostAddressObj(), this.GetPort());
-            this.ToSendQueue.add(TempPacket);
-            return true;
-            
-        }else
-        {
-            return false;
-        }
-    }
-    
-    // Override : Make The packet and Send it to different Host As each packet is routed independently by the INFOs in its Header
-    // And no Connection is needed to send 
-    public boolean AppendPacket(byte[] PacketData , String Host)
-    {
-        try {
-            InetAddress TempHost = InetAddress.getByName(Host);
-             if(PacketData.length < this.GetPacketSizeLimit())
-                {
-                    DatagramPacket TempPacket = new DatagramPacket(PacketData, PacketData.length,TempHost, this.GetPort());
-                    this.ToSendQueue.add(TempPacket);
-                    return true;
 
-                }else
-                {
-                    return false;
-                }
-        } catch (UnknownHostException ex) {
-              
-            return false;
-        }
-    }
-    
-    
-    // Start Sending Packet In the Queue
-    public void StartSending() throws IOException
+
+
+    // prepare UDP packet and send it
+    public void SendPacket(byte[] ToSendData) throws IOException
     {
-        for(DatagramPacket Temp : this.ToSendQueue)
-        {
-            this.SockeT.send(Temp);
-            this.ToSendQueue.remove(Temp);
-        }
+        this.ToSendPacket = new DatagramPacket(ToSendData,ToSendData.length , this.GetHostAddressObj(),this.GetPort());
+        this.SockeT.send(ToSendPacket);
         
     }
-    
-    
-    // Receive Packets and Put them in the Queue
-    public void ReceivePacket() throws IOException
+
+    // Receive Packets 
+    public void ReceivePacket(byte[] ReceivedData) throws IOException
     {
-        
-        for(int i = 0;i < this.GetWindowSize(); i++)
-        {
-            byte[] Buffer = new byte[this.GetPacketSizeLimit()];
-            DatagramPacket Temp = new DatagramPacket(Buffer, Buffer.length);
+            this.ReceivedPacket = new DatagramPacket(ReceivedData,ReceivedData.length);
+            this.SockeT.receive(this.ReceivedPacket);
             
-            this.SockeT.receive(Temp);
-            
-            this.ReceivedQueue.add(Temp);
-        }
     }
     
-    
-    // Get The Queue of Received Packets
-    public ArrayList<DatagramPacket> GetReceivedPackets()
-    {
-        return this.ReceivedQueue;
-    }
-    
-    // Clear the queue for more space , But you need to make sure extracting Received Packets First
-    public void ClearReceivedQueue()
-    {
-        this.ReceivedQueue.clear();
-    }
-    
+   
+   
     
     // Get Socket Object for more specific operation
     public DatagramSocket GetSocket()
@@ -221,7 +162,9 @@ public class TinyUDP {
         this.SockeT.close();
     }
     
-    // More changes will be added
+    
     //End Of UDP Wrapper Class;
-
+    
+    
+    
 }
